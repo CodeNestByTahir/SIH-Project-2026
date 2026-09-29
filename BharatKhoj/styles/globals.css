@@ -1,0 +1,520 @@
+/* ============================================================
+   BHARATKHOJ — Global Stylesheet
+   Brand Colors:
+     Primary  : #AB5419  (Terracotta Brown)
+     Secondary: #E0B17D  (Warm Sand)
+     Neutral  : #928464  (Stone)
+     Background: #FDF6EE (Cream)
+     Dark     : #1A0F08  (Deep Brown)
+   ============================================================ */
+
+/* @import MUST be first — before all @tailwind directives */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- CSS Custom Properties ---------- */
+:root {
+  --font-cinzel: 'Cinzel', Georgia, serif;
+  --font-inter:  'Inter', system-ui, sans-serif;
+
+  --bharat-primary:   #AB5419;
+  --bharat-secondary: #E0B17D;
+  --bharat-neutral:   #928464;
+  --bharat-dark:      #1A0F08;
+  --bharat-deep:      #2C1A0E;
+  --bharat-cream:     #FDF6EE;
+  --bharat-light:     #FBF0E4;
+  --bharat-border:    #E8D5BC;
+
+  --section-pad: 5rem;
+  --navbar-height: 68px;
+}
+
+/* ---------- Base Reset ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-inter);
+  background-color: var(--bharat-cream);
+  color: var(--bharat-dark);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---------- Custom Scrollbar ---------- */
+::-webkit-scrollbar        { width: 5px; }
+::-webkit-scrollbar-track  { background: var(--bharat-light); }
+::-webkit-scrollbar-thumb  { background: var(--bharat-primary); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #8a4314; }
+* { scrollbar-width: thin; scrollbar-color: #AB5419 #FBF0E4; }
+
+/* ---------- Text Selection ---------- */
+::selection {
+  background: rgba(171, 84, 25, 0.18);
+  color: var(--bharat-dark);
+}
+
+/* ============================================================
+   LAYOUT UTILITIES
+   ============================================================ */
+
+.section-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section-pad {
+  padding-top: var(--section-pad);
+  padding-bottom: var(--section-pad);
+}
+
+/* Solid section divider — no bleed */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--bharat-border), transparent);
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+
+.display-heading {
+  font-family: var(--font-cinzel);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+}
+
+.section-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--bharat-primary);
+}
+
+.text-gradient-warm {
+  background: linear-gradient(135deg, #AB5419, #E0B17D);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  background: var(--bharat-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  font-family: var(--font-inter);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+}
+.btn-primary:hover {
+  background: #8a4314;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(171, 84, 25, 0.35);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.8rem;
+  background: transparent;
+  color: var(--bharat-primary);
+  border: 1.5px solid var(--bharat-primary);
+  border-radius: 9999px;
+  font-family: var(--font-inter);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+.btn-outline:hover {
+  background: var(--bharat-primary);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   CARDS
+   ============================================================ */
+
+/* Solid card — prevents scroll bleed from glassmorphism */
+.bharat-card {
+  background: #ffffff;
+  border: 1px solid var(--bharat-border);
+  border-radius: 16px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.bharat-card:hover {
+  box-shadow: 0 12px 40px rgba(171, 84, 25, 0.12);
+  transform: translateY(-4px);
+}
+
+.historical-object {
+  background: #ffffff;
+  border: 1px solid var(--bharat-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.historical-object:hover {
+  box-shadow: 0 12px 40px rgba(171, 84, 25, 0.12);
+  transform: translateY(-4px);
+}
+
+.personality-card {
+  background: #ffffff;
+  border: 1px solid var(--bharat-border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.personality-card:hover {
+  box-shadow: 0 12px 40px rgba(171, 84, 25, 0.12);
+  transform: translateY(-4px);
+}
+
+.game-card {
+  background: var(--bharat-dark);
+  border: 1px solid rgba(224, 177, 125, 0.15);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.game-card:hover {
+  box-shadow: 0 16px 48px rgba(171, 84, 25, 0.3);
+  transform: translateY(-4px);
+}
+
+/* ============================================================
+   NAVBAR
+   Fix: Solid background prevents content scroll bleed
+   ============================================================ */
+
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  /* SOLID background — not pure transparent — prevents scroll bleed */
+  background: rgba(253, 246, 238, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--bharat-border);
+  transition: box-shadow 0.3s ease;
+}
+.navbar.scrolled {
+  box-shadow: 0 2px 20px rgba(171, 84, 25, 0.1);
+}
+
+/* ============================================================
+   STATE HERO
+   ============================================================ */
+
+.state-hero {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  background: var(--bharat-dark); /* Solid fallback */
+  overflow: hidden;
+}
+
+/* Background image layer */
+.state-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.4);
+}
+
+/* Gradient overlay ensures text always readable */
+.state-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to right,
+    rgba(26, 15, 8, 0.92) 0%,
+    rgba(26, 15, 8, 0.55) 60%,
+    transparent 100%
+  );
+}
+
+/* Content sits above bg and overlay */
+.state-hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 7rem 1.5rem 4rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ============================================================
+   STICKY TABS
+   Fix: Solid background prevents content from "showing through"
+   when user scrolls
+   ============================================================ */
+
+.sticky-tabs {
+  position: sticky;
+  top: var(--navbar-height); /* Sits below navbar */
+  z-index: 50;
+  background: var(--bharat-cream); /* SOLID — not transparent */
+  border-bottom: 1px solid var(--bharat-border);
+  box-shadow: 0 2px 12px rgba(171, 84, 25, 0.06);
+}
+
+/* ============================================================
+   2.5D VIEWER SYSTEM
+   Each object supports: Front | Right | Back | Left views
+   ============================================================ */
+
+.viewer-2d5-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden; /* Prevents horizontal overflow */
+}
+
+.viewer-2d5 {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: var(--bharat-light);
+  border: 1.5px solid var(--bharat-border);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.viewer-face-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.viewer-face-label {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(26, 15, 8, 0.6);
+  color: #FDF6EE;
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 9999px;
+  text-transform: capitalize;
+  pointer-events: none;
+}
+
+.viewer-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(253, 246, 238, 0.9);
+  border: 1px solid var(--bharat-border);
+  border-radius: 50%;
+  width: 30px; height: 30px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  transition: background 0.2s ease;
+}
+.viewer-nav-btn:hover { background: var(--bharat-light); }
+.viewer-nav-btn.left  { left: 8px; }
+.viewer-nav-btn.right { right: 8px; }
+
+.viewer-controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.viewer-btn {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  border: 1.5px solid var(--bharat-border);
+  background: #ffffff;
+  color: var(--bharat-neutral);
+  font-size: 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: capitalize;
+  transition: all 0.2s ease;
+  font-family: var(--font-inter);
+}
+.viewer-btn.active,
+.viewer-btn:hover {
+  background: var(--bharat-primary);
+  border-color: var(--bharat-primary);
+  color: #ffffff;
+}
+
+/* ============================================================
+   INDIA MAP
+   ============================================================ */
+
+.india-map-root {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  user-select: none;
+}
+
+.map-state-marker {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.map-dot-available {
+  width: 14px; height: 14px;
+  background: var(--bharat-primary);
+  border: 2.5px solid #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(171, 84, 25, 0.5);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.map-dot-available:hover { transform: scale(1.4); }
+
+.map-dot-soon {
+  width: 8px; height: 8px;
+  background: #D4BFA0;
+  border: 1.5px solid #ffffff;
+  border-radius: 50%;
+  opacity: 0.7;
+}
+
+/* ============================================================
+   QUIZ COMPONENTS
+   ============================================================ */
+
+.quiz-option {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: #ffffff;
+  border: 1.5px solid var(--bharat-border);
+  border-radius: 12px;
+  text-align: left;
+  font-size: 0.875rem;
+  color: var(--bharat-dark);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-inter);
+}
+.quiz-option:hover:not(:disabled) {
+  border-color: var(--bharat-primary);
+  background: var(--bharat-light);
+}
+.quiz-option.correct {
+  border-color: #16a34a;
+  background: #f0fdf4;
+  color: #15803d;
+}
+.quiz-option.wrong {
+  border-color: #dc2626;
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+/* ============================================================
+   SCROLL REVEAL ANIMATIONS
+   Used with IntersectionObserver
+   ============================================================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Stagger delays */
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
+.delay-500 { transition-delay: 0.5s; }
+
+/* ============================================================
+   SKELETON LOADER
+   ============================================================ */
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(224, 177, 125, 0.15) 25%,
+    rgba(224, 177, 125, 0.3)  50%,
+    rgba(224, 177, 125, 0.15) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+  :root { --section-pad: 3rem; }
+  .state-hero { min-height: 60vh; }
+}
+
+@media (max-width: 480px) {
+  :root { --section-pad: 2.5rem; }
+}
